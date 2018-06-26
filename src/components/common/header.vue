@@ -1,11 +1,11 @@
 <template>
-    <div id="header_contain">
+    <div id="header_contain" :class="headerNum == 1 ? '' : 'changeClass'">
         <el-row>
             <el-col :span="8">
                 <ul class="list_left">
-                    <router-link to="/main/home"><li class="list_active">首页</li></router-link>
-                    <router-link to="/main/introduce"><li class="list_active">产品与服务</li></router-link>
-                    <router-link to="/main/about"><li class="list_active">关于我们</li></router-link>
+                    <router-link to="/main/home"><li class="list_active" @click="changeClass(1)">首页</li></router-link>
+                    <router-link to="/main/introduce"><li class="list_active" @click="changeClass(2)">产品与服务</li></router-link>
+                    <router-link to="/main/about"><li class="list_active" @click="changeClass(2)">关于我们</li></router-link>
                 </ul>
             </el-col>
             <el-col :span="8">
@@ -37,7 +37,21 @@ export default {
     data(){
         return{
             weixin: false,
-            upLoadApp: false
+            upLoadApp: false,
+            headerNum: 1
+        }
+    },
+    mounted(){
+        // this.$nextTick(function () {
+        //     window.addEventListener('click', this.onClick)
+        // })
+    },
+    methods:{
+        changeClass(index){
+            this.headerNum = index;
+        },
+        onClick(){
+            this.headerNum = 2;
         }
     }
 }

@@ -18,12 +18,12 @@
         <div class="ulJump_btn">
             <p></p>
             <ul>
-                <li :class="classNum === 1 ? 'jump_active' : 'nextActive'" @click="goAnchor('#banner_contain', 1)"><a href="javascript:void(0)">1</a><span></span></li>
-                <li :class="classNum === 2 ? 'jump_active' : classNum === 1?'':'nextActive'" @click="goAnchor('#second_section', 2)"><a href="javascript:void(0)">2</a><span></span></li>
-                <li :class="classNum === 3 ? 'jump_active' : classNum === 1?'':'nextActive'" @click="goAnchor('#third_section', 3)"><a href="javascript:void(0)">3</a><span></span></li>
-                <li :class="classNum === 4 ? 'jump_active' : classNum === 1?'':'nextActive'" @click="goAnchor('#fourth_section', 4)"><a href="javascript:void(0)">4</a><span></span></li>
-                <li :class="classNum === 5 ? 'jump_active' : classNum === 1?'':'nextActive'" @click="goAnchor('#five_section', 5)"><a href="javascript:void(0)">5</a><span></span></li>
-                <li :class="classNum === 6 ? 'jump_active' : classNum === 1?'':'nextActive'" @click="goAnchor('#sixth_section', 6)"><a href="javascript:void(0)">6</a><span></span></li>
+                <li :class="classNum === 1 ? 'jump_active' : classNum === 6 ?'':'nextActive'" @click="goAnchor('#banner_contain', 1)"><a href="javascript:void(0)">1</a><span></span></li>
+                <li :class="classNum === 2 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#second_section', 2)"><a href="javascript:void(0)">2</a><span></span></li>
+                <li :class="classNum === 3 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#third_section', 3)"><a href="javascript:void(0)">3</a><span></span></li>
+                <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#fourth_section', 4)"><a href="javascript:void(0)">4</a><span></span></li>
+                <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#five_section', 5)"><a href="javascript:void(0)">5</a><span></span></li>
+                <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor('#sixth_section', 6)"><a href="javascript:void(0)">6</a><span></span></li>
             </ul>
             <p></p>
         </div>
@@ -279,7 +279,7 @@
                 <p>完成与联系</p>
             </li>
         </ul>
-        <div class="goRegister">立即注册</div>
+        <div class="goRegister"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">立即注册</a></div>
     </div>
     <!-- sixth 部分 -->
     <div id="sixth_section" class="common_contain">
@@ -347,7 +347,7 @@ export default {
             this.classNum = index;
             this.$emit('getindex', this.classNum);
             let jump = this.$el.querySelector(selector);
-            let total = jump.offsetTop-64;
+            let total = jump.offsetTop-500;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
             // 平滑滚动，时长500ms，每10ms一跳，共50跳
             let step = total / 50
@@ -384,19 +384,20 @@ export default {
         onScroll () {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop
         　　　 // 586、1063分别为第二个和第三个锚点对应的距离
-            if (scrolled >= 4836) {
+            if (scrolled >= 4400) {
                 this.classNum = 6
-            } else if (scrolled < 4836 && scrolled >= 3841) {
+            } else if (scrolled < 4400 && scrolled >= 3405) {
                 this.classNum = 5
-            } else if (scrolled < 3841 && scrolled >= 2887) {
+            } else if (scrolled < 3405 && scrolled >= 2451) {
                 this.classNum = 4
-            } else if (scrolled < 2887 && scrolled >= 1900) {
+            } else if (scrolled < 2451 && scrolled >= 1464) {
                 this.classNum = 3
-            } else if (scrolled < 1900 && scrolled >= 989) {
+            } else if (scrolled < 1464 && scrolled >= 553) {
                 this.classNum = 2
             } else {
                 this.classNum = 1
             }
+            this.$emit('getindex', this.classNum);
         }
     }
 

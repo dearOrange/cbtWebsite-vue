@@ -426,13 +426,17 @@
     background:rgba(255,255,255,1);
     box-shadow:0px 8px 20px 0px rgba(0,0,0,0.16);
     border-radius:1px;
-    font-size:20px;
+    margin:50px auto 0;
+}
+#five_section .goRegister a{
     font-family:PingFangSC-Regular;
     color:rgba(255,127,59,1);
-    margin:50px auto 0;
+    font-size:20px;
 }
 #five_section .goRegister:hover{
     background:rgba(255,127,59,1);
+}
+#five_section .goRegister:hover a{
     color:rgba(255,255,255,1);
 }
 /* 第六部分 */
