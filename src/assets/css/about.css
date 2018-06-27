@@ -173,10 +173,15 @@
     background:rgba(243,248,255,1);
 }
 .about_contain_environment{
-    height:540px;
-    background:url(../img/aboutus_workplace.png) no-repeat center center;
-    background-size:cover;
-    padding:225px 0;
+    height:649px;
+}
+.about_contain_environment .page_title, .about_contain_environment .page_description{
+    color:rgba(51,51,51,1)!important;
+}
+.about_contain_environment img{
+    width:100%;
+    height:480px;
+    margin-top:20px;
 }
 .about_contain_nowadays{
     height:540px;

@@ -32,6 +32,8 @@
         <div class="about_contain_environment search_contain">
             <p class="page_title">工作环境</p>
             <p class="page_lines"></p>
+            <p class="page_description">环境优美宜人，工作氛围浓厚。</p>
+            <img src="../assets/img/aboutus_workplace.png" alt="">
         </div>
         <div class="about_contain_nowadays search_contain">
             <p class="page_title">所在位置</p>

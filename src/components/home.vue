@@ -159,7 +159,7 @@
         </div>
         <p class="common_css todo_middle"></p>
         <p class="detail_content">捕车邦</p>
-        <p class="detail_content detail_content_css">兢兢业业，奋力拼搏，用汗水铸就每一个前进的脚印</p>
+        <p class="detail_content detail_content_css">专业的移动端找车应用，一体式智能化流程，让找车更轻松，更有效</p>
         <div class="produce_introduce">
             <div>
                 <img src="../assets/img/fourth_phone.png" alt="">
@@ -175,31 +175,31 @@
                     <dd>
                         <img src="../assets/img/fourth_second.png" alt="">
                     </dd>
-                    <dt>快速发布</dt>   
+                    <dt>任务跟踪</dt>   
                 </dl>
                 <dl>
                     <dd>
                         <img src="../assets/img/fourth_third.png" alt="">
                     </dd>
-                    <dt>快速发布</dt>   
+                    <dt>一键上传</dt>   
                 </dl>
                 <dl>
                     <dd>
                         <img src="../assets/img/fourth_fourth.png" alt="">
                     </dd>
-                    <dt>快速发布</dt>   
+                    <dt>快速匹配</dt>   
                 </dl>
                 <dl>
                     <dd>
                         <img src="../assets/img/fourth_fifith.png" alt="">
                     </dd>
-                    <dt>快速发布</dt>   
+                    <dt>地图搜索</dt>   
                 </dl>
                 <dl>
                     <dd>
                         <img src="../assets/img/fourth_sixth.png" alt="">
                     </dd>
-                    <dt>快速发布</dt>   
+                    <dt>定时推送</dt>   
                 </dl> 
                 <dl class="last_dl_list">
                     <dd class="dd_one">
@@ -279,7 +279,7 @@
                 <p>完成与联系</p>
             </li>
         </ul>
-        <div class="goRegister"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">立即注册</a></div>
+        <div class="goRegister"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">立即注册债权方</a></div>
     </div>
     <!-- sixth 部分 -->
     <div id="sixth_section" class="common_contain">
@@ -345,7 +345,6 @@ export default {
     methods: {
         goAnchor (selector,index) {
             this.classNum = index;
-            this.$emit('getindex', this.classNum);
             let jump = this.$el.querySelector(selector);
             let total = jump.offsetTop-500;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
@@ -397,7 +396,6 @@ export default {
             } else {
                 this.classNum = 1
             }
-            this.$emit('getindex', this.classNum);
         }
     }
 
