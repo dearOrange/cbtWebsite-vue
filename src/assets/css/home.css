@@ -350,6 +350,9 @@
 .produce_introduce div dl.last_dl_list dd.dd_one{
     margin-top:10px;
 }
+.produce_introduce div dl.last_dl_list dd.dd_two{
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,.2);
+}
 .produce_introduce div dl.last_dl_list dt{
     margin-top:55px;
 }

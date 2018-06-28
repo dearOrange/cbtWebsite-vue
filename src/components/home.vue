@@ -93,7 +93,7 @@
             <ul>
                 <li>
                     <p>
-                        103.826
+                        {{total.totalTask}}
                         <span>+</span>
                     </p>
                     <img src="../assets/img/third_first.png" alt="">
@@ -101,15 +101,15 @@
                 </li>
                 <li>
                     <p>
-                        103.826
-                        <span>+</span>
+                        {{total.totalPrices}}
+                        <span>万元+</span>
                     </p>
                     <img src="../assets/img/third_second.png" alt="">
                     <span class="third_task">处置金额</span>
                 </li>
                 <li>
                     <p>
-                        103.826
+                        {{total.totalDownstream}}
                         <span>+</span>
                     </p>
                     <img src="../assets/img/third_third.png" alt="">
@@ -117,7 +117,7 @@
                 </li>
                 <li>
                     <p>
-                        103.826
+                        {{total.totalUpstream}}
                         <span>+</span>
                     </p>
                     <img src="../assets/img/third_fourth.png" alt="">
@@ -210,8 +210,8 @@
                     </dt>   
                 </dl>
                 <dl class="last_dl_list">
-                    <dd>
-                        <img src="../assets/img/fourth_erweima.png" alt="">
+                    <dd class="dd_two">
+                        <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="">
                     </dd>
                 </dl>
             </div>
@@ -326,6 +326,7 @@
  </div>   
 </template>
 <script>
+import axios from 'axios'
 import Footer from './common/footer.vue'
 export default {
     name:'Home',
@@ -334,12 +335,34 @@ export default {
     },
     data(){
         return{
-            classNum:1
+            classNum: 1,
+            total:{
+                totalUpstream:0,
+                totalPrices:0,
+                totalDownstream:0,
+                totalTask:0
+            }
+            
         }
     },
     mounted: function () {
         this.$nextTick(function () {
             window.addEventListener('scroll', this.onScroll)
+        });
+        axios({
+            method: 'get',
+            url:'http://test.hunter.chebutou.com.cn/hunterServer/content/getWebsiteData',
+            responseType:'json',
+            headers: {
+              'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            }
+        })
+        .then(res=>{
+            let data = res.data.data;
+            this.total.totalUpstream = data.totalUpstream;
+            this.total.totalPrices = data.totalPrices;
+            this.total.totalDownstream = data.totalDownstream;
+            this.total.totalTask = data.totalTask;
         })
     },
     methods: {

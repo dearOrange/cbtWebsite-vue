@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "axios-jsonp-pro": "^1.1.4",
     "babel-polyfill": "^6.26.0",
     "element-ui": "^2.4.1",
     "es6-promise": "^4.2.4",
+    "jquery": "^3.3.1",
+    "jsonp": "^0.2.1",
     "tween.js": "^16.6.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
