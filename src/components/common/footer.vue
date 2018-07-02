@@ -15,11 +15,11 @@
             </li>
             <li>
                 <h3>微信平台</h3>
-                <p><img src="../../assets/img/sixth_wechat.png" alt="微信平台"></p>
+                <p><img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="微信平台"></p>
             </li>
             <li>
                 <h3>手机APP</h3>
-                <p><img src="../../assets/img/sixth_appdownload.png" alt="手机APP"></p>
+                <p><img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="手机APP"></p>
             </li>
         </ul>
         <div class="bussiness_mark">Copyright © 2016-2017 chebutou.com.cn 版权所有 浙ICP备17001441号-1</div>

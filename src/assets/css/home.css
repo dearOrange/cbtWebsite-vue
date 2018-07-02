@@ -1,22 +1,73 @@
 #home_contain{
     width:100%;
     height:100%;
-    /* overflow-y: auto; */
+}
+#mannu{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+	transition:all 700ms ease;  
 }
 .common_contain{
     width:100%;
     height:100%;
 }
+#home_contain .ulJump_btn{
+    position:fixed;
+    top:50%;
+    right:24px;
+    margin:-200px auto -20px;
+    width:40px;
+    height:300px;
+    z-index:99;
+    text-align: center;
+}
+#home_contain .ulJump_btn p{
+    width:2px;
+    height:36px;
+    border:1px solid rgba(151,151,151,1);
+    margin:0 14px 10px;
+}
+#home_contain .ulJump_btn ul li{
+    cursor: pointer;
+    width:30px;
+    height:30px;
+}
+#home_contain .ulJump_btn ul li.nextActive a{
+    color:#000;
+}
+#home_contain .ulJump_btn ul li.jump_active{
+    border:1px solid rgba(209,209,209,1);
+    border-radius: 100%;
+    line-height: 28px;
+    position:relative;
+    margin:0 0 10px;
+    font-size:18px;
+    text-align: center;
+}
+#home_contain .ulJump_btn ul li.jump_active a{
+    color:rgba(255,159,0,.5);
+}
+#home_contain .ulJump_btn ul li.jump_active span{
+    width:1px;
+    height:9px;
+    border:1px solid rgba(209,209,209,1);
+    position:absolute;
+    right:2px;
+    bottom:-6px;
+    transform:rotate(-45deg);
+}
 #banner_contain{
     background:url('../img/home_banner.png') no-repeat center; 
     background-size:cover;
     margin-top:64px;
-    padding:36px 0;
+    padding:28px 0;
     color:#fff;
 }
 #banner_contain .banner_top{
     width:2px;
-    height:200px;
+    height:136px;
     border:1px solid rgba(243,122,56,1);
     margin:0 auto;
 }
@@ -84,55 +135,12 @@
     background-size:cover;
     margin:20px auto;
 }
-#banner_contain .ulJump_btn{
-    position:fixed;
-    top:50%;
-    right:24px;
-    margin:-200px 0 0 -20px;
-    width:40px;
-    height:400px;
-    z-index:99;
-}
-#banner_contain .ulJump_btn p{
-    width:2px;
-    height:36px;
-    border:1px solid rgba(151,151,151,1);
-    margin:0 14px 10px;
-}
-#banner_contain .ulJump_btn ul li{
-    cursor: pointer;
-    width:30px;
-    height:30px;
-}
-#banner_contain .ulJump_btn ul li.nextActive a{
-    color:#000;
-}
-#banner_contain .ulJump_btn ul li.jump_active{
-    border:1px solid rgba(209,209,209,1);
-    border-radius: 100%;
-    line-height: 28px;
-    position:relative;
-    margin:0 0 10px;
-    font-size:18px;
-    text-align: center;
-}
-#banner_contain .ulJump_btn ul li.jump_active a{
-    color:rgba(255,159,0,.5);
-}
-#banner_contain .ulJump_btn ul li.jump_active span{
-    width:1px;
-    height:9px;
-    border:1px solid rgba(209,209,209,1);
-    position:absolute;
-    right:2px;
-    bottom:-6px;
-    transform:rotate(-45deg);
-}
+
 /* what to do */
 #second_section{
     background:url(../img/second_bg.png) no-repeat center;
     background-size:cover;
-    padding:20px 0 100px;
+    padding:20px 0 58px;
 }
 .common_css{
     width:2px;
@@ -242,7 +250,7 @@
     height:260px;
     background:url(../img/third_background.png) no-repeat center;
     background-size:cover;
-    margin:20px 0;
+    margin:4px 0;
 }
 #third_section .third_number ul {
     width:1192px;
@@ -291,7 +299,7 @@
     margin-left:162px;
 }
 #third_section .ranking_list dl dt{
-    margin:20px 0;
+    margin:10px 0;
 }
 .rank_img{
     display:inline-block;
@@ -312,7 +320,7 @@
 #fourth_section{
     background:url(../img/aa.png) no-repeat center;
     background-size:cover;
-    padding:20px 0 100px;
+    padding:20px 0 55px;
 }
 .detail_content_css{
     font-size:16px;
@@ -360,12 +368,12 @@
 #five_section{
     background:url(../img/aa.png) no-repeat center;
     background-size:100% 100%;
-    padding:20px 0 100px;
+    padding:20px 0 80px;
 }
 #five_section .production_list{
     width:1210px;
     overflow: hidden;
-    margin:20px auto 0;
+    margin:10px auto 0;
     padding:10px 0;
 }
 #five_section .production_list li{
@@ -431,7 +439,7 @@
     background:rgba(255,255,255,1);
     box-shadow:0px 8px 20px 0px rgba(0,0,0,0.16);
     border-radius:1px;
-    margin:50px auto 0;
+    margin:26px auto 0;
 }
 #five_section .goRegister a{
     font-family:PingFangSC-Regular;

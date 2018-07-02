@@ -1,6 +1,25 @@
 <template>
 <!-- banner部分 -->
 <div id="home_contain" class="home_content">
+    <div class="ulJump_btn">
+            <p></p>
+            <ul>
+                <li :class="classNum === 1 ? 'jump_active' : classNum === 6 ?'':'nextActive'" @click="goAnchor('#banner_contain', 1)"><a href="javascript:void(0)">1</a><span></span></li>
+                <li :class="classNum === 2 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#second_section', 2)"><a href="javascript:void(0)">2</a><span></span></li>
+                <li :class="classNum === 3 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#third_section', 3)"><a href="javascript:void(0)">3</a><span></span></li>
+                <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#fourth_section', 4)"><a href="javascript:void(0)">4</a><span></span></li>
+                <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#five_section', 5)"><a href="javascript:void(0)">5</a><span></span></li>
+                <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor('#sixth_section', 6)"><a href="javascript:void(0)">6</a><span></span></li>
+                <!-- <li data-menuanchor="main/home/#banner_contain" class="jump_active"><a href="#main/home/#banner_contain">1</a><span></span></li>
+                <li data-menuanchor="main/home/#second_section"><a href="#main/home/#second_section">2</a><span></span></li>
+                <li data-menuanchor="main/home/#third_section"><a href="#main/home/#third_section">3</a><span></span></li>
+                <li data-menuanchor="main/home/#fourth_section"><a href="#main/home/#fourth_section">4</a><span></span></li>
+                <li data-menuanchor="main/home/#five_section"><a href="#main/home/#five_section">5</a><span></span></li>
+                <li data-menuanchor="main/home/#sixth_section"><a href="#main/home/#sixth_section">6</a><span></span></li> -->
+            </ul>
+            <p></p>
+        </div>
+    <div id="mannu">
     <div id="banner_contain" class="common_contain">
         <p class="banner_top"></p>
         <div class="banner_title">
@@ -15,22 +34,9 @@
         <p class="banner_three">免费发布·免费咨询·免费对接·全程协助</p>
         <p class="banner_bottom"></p>
         <p class="banner_bottomBg"></p>
-        <div class="ulJump_btn">
-            <p></p>
-            <ul>
-                <li :class="classNum === 1 ? 'jump_active' : classNum === 6 ?'':'nextActive'" @click="goAnchor('#banner_contain', 1)"><a href="javascript:void(0)">1</a><span></span></li>
-                <li :class="classNum === 2 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#second_section', 2)"><a href="javascript:void(0)">2</a><span></span></li>
-                <li :class="classNum === 3 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#third_section', 3)"><a href="javascript:void(0)">3</a><span></span></li>
-                <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#fourth_section', 4)"><a href="javascript:void(0)">4</a><span></span></li>
-                <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#five_section', 5)"><a href="javascript:void(0)">5</a><span></span></li>
-                <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor('#sixth_section', 6)"><a href="javascript:void(0)">6</a><span></span></li>
-            </ul>
-            <p></p>
-        </div>
+        
     </div>
-
 <!-- what we do -->
-<transition name="slide-fade">
     <div id="second_section" class="common_contain">
         <p class="common_css todo_top"></p>
         <p class="what_title">我们是做什么的？</p>
@@ -77,7 +83,6 @@
             </li>
         </ul>
     </div>
-</transition>    
     <!-- third部分 -->
     <div id="third_section" class="common_contain">
         <p class="common_css todo_top"></p>
@@ -105,7 +110,7 @@
                         <span>万元+</span>
                     </p>
                     <img src="../assets/img/third_second.png" alt="">
-                    <span class="third_task">处置金额</span>
+                    <span class="third_task">任务金额</span>
                 </li>
                 <li>
                     <p>
@@ -211,7 +216,7 @@
                 </dl>
                 <dl class="last_dl_list">
                     <dd class="dd_two">
-                        <img src="http://javadev:8280/hunterServer/content/showQRCode" alt="">
+                        <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="">
                     </dd>
                 </dl>
             </div>
@@ -323,6 +328,7 @@
         </ul>
         <Footer/>
     </div>
+    </div>
  </div>   
 </template>
 <script>
@@ -337,17 +343,84 @@ export default {
         return{
             classNum: 1,
             total:{
-                totalUpstream:0,
-                totalPrices:0,
-                totalDownstream:0,
-                totalTask:0
+                totalUpstream:2156,
+                totalPrices:3262313,
+                totalDownstream:7865,
+                totalTask:141840
             }
             
         }
     },
     mounted: function () {
         this.$nextTick(function () {
-            window.addEventListener('scroll', this.onScroll)
+            // window.addEventListener('scroll', this.onScroll)
+            var that = this;
+            var oOuter = document.getElementById("mannu");
+            var aInner = oOuter.getElementsByClassName("common_contain");
+            
+			function mouseWheel(){
+				//火狐 : DOMMouseScroll( DOM事件必须用绑定事件的方式去写 addEventListener )
+				//IE ,  谷歌 : mousewheel
+				var bBtn = true;
+				var timer = null;
+				var iNow = 0;
+                var height = oOuter.offsetHeight;
+                
+				if(oOuter.addEventListener){
+					oOuter.addEventListener('DOMMouseScroll',function(ev){
+						var ev = ev || window.event;
+						clearTimeout(timer);
+						timer = setTimeout(function(){
+							toChange(ev);
+						},200);
+					},false);
+				}
+				oOuter.onmousewheel = function(){
+					var ev = ev || window.event;
+					clearTimeout(timer);
+					timer = setTimeout(function(){
+						toChange(ev);
+					},200);
+				};
+				function toChange(ev){
+					//alert(ev.detail);  //↓ 3  ↑ -3
+					//alert(ev.wheelDelta); //↓ -120  ↑ 120
+					if(ev.detail){
+						bBtn = ev.detail > 0 ? true : false;
+					}
+					else{
+						bBtn = ev.wheelDelta < 0 ? true : false;
+					}
+					if(bBtn){
+                           //↓
+						if(iNow != aInner.length-1){
+                            iNow++;
+                            that.classNum = iNow+1
+                        }
+                        console.log(aInner[iNow].offsetHeight)
+                        // oOuter.style.transform = "translateY(" + -aInner[iNow].offsetTop + "px)"
+                        oOuter.style.top = -height*iNow + "px"
+					}
+					else{   //↑
+						if(iNow != 0){
+                            iNow--;
+                            that.classNum = iNow+1
+                        }
+                        // oOuter.style.transform = "translateY(" + -aInner[iNow].offsetTop + "px)"
+                        // console.log(-aInner[iNow].offsetTop-64)
+						oOuter.style.top = -height*iNow + "px"
+                    }
+                    
+					if(ev.preventDefault){
+						ev.preventDefault();
+					}
+					else{
+						return false;
+					}
+				}
+				
+			}
+			mouseWheel()
         });
         axios({
             method: 'get',
@@ -368,8 +441,9 @@ export default {
     methods: {
         goAnchor (selector,index) {
             this.classNum = index;
+            console.log(this.classNum)
             let jump = this.$el.querySelector(selector);
-            let total = jump.offsetTop-500;
+            let total = jump.offsetTop;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
             // 平滑滚动，时长500ms，每10ms一跳，共50跳
             let step = total / 50
@@ -404,18 +478,19 @@ export default {
             } 
         },
         onScroll () {
-            let scrolled = document.documentElement.scrollTop || document.body.scrollTop
-        　　　 // 586、1063分别为第二个和第三个锚点对应的距离
-            if (scrolled >= 4400) {
+            let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if (scrolled >= 4663) {
                 this.classNum = 6
-            } else if (scrolled < 4400 && scrolled >= 3405) {
+            } else if (scrolled < 4663 && scrolled >= 3682) {
                 this.classNum = 5
-            } else if (scrolled < 3405 && scrolled >= 2451) {
+            } else if (scrolled < 3682 && scrolled >= 2773) {
                 this.classNum = 4
-            } else if (scrolled < 2451 && scrolled >= 1464) {
+            } else if (scrolled < 2773 && scrolled >= 1818) {
                 this.classNum = 3
-            } else if (scrolled < 1464 && scrolled >= 553) {
+            } else if (scrolled < 1818 && scrolled >= 909) {
                 this.classNum = 2
+                
             } else {
                 this.classNum = 1
             }
