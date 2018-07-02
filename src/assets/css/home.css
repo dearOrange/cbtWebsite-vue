@@ -7,7 +7,8 @@
     height:100%;
     position: absolute;
     left:0;
-	transition:all 700ms ease;  
+    top:0;
+	transition:all 500ms ease;  
 }
 .common_contain{
     width:100%;
@@ -129,7 +130,7 @@
 #banner_contain .banner_bottomBg{
     width:32px;
     height:56px;
-    border-radius:16px 16px 16px 0px;
+    border-radius:16px 16px 16px 16px;
     border:1px solid rgba(255,255,255,1);
     background:url(../img/home_page.png) no-repeat center; 
     background-size:cover;
