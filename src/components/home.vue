@@ -342,7 +342,6 @@ export default {
     data(){
         return{
             classNum: 1,
-            flag: true,
             total:{
                 totalUpstream:2156,
                 totalPrices:3262313,
@@ -365,7 +364,8 @@ export default {
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
 				var timer = null;
-				var iNow = 1;
+                var iNow = 1;
+                var flag = true;
                 var height = oOuter.offsetHeight;
                 
 				if(oOuter.addEventListener){
@@ -382,19 +382,26 @@ export default {
                            //↓
                             if(window.canAutoScroll){
                                 if(iNow != aInner.length){
-                                    iNow++;
+                                    if(flag){
+                                        flag = false;
+                                        iNow++;
+                                    }
                                 }
                             }
                         }
                         else{   //↑
                             if(iNow != 1){
-                                iNow--;
+                                if(flag){
+                                    flag = false;
+                                    iNow--;
+                                }
                             }
                         }
                         clearTimeout(timer);
 						timer = setTimeout(function(){
-							that.goAnchor(iNow)
-                        },200);
+                            that.goAnchor(iNow)
+                            flag = true;
+                        },300);
                         
                         if(ev.preventDefault){
                             ev.preventDefault();
@@ -417,18 +424,25 @@ export default {
                     if(bBtn){
                         //↓
                         if(iNow != aInner.length){
-                            iNow++;
+                            if(flag){
+                                flag = false;
+                                iNow++;
+                            }
                         }
                     }
                     else{   //↑
                         if(iNow != 1){
-                            iNow--;
+                            if(flag){
+                                flag = false;
+                                iNow--;
+                            }
                         }
                     }
                     clearTimeout(timer);
                     timer = setTimeout(function(){
                         that.goAnchor(iNow)
-                    },200);
+                        flag = true;
+                    },300);
 
                     if(ev.preventDefault){
 						ev.preventDefault();
@@ -482,7 +496,7 @@ export default {
                     distance += step
         　　　　　　 document.body.scrollTop = distance
                     document.documentElement.scrollTop = distance
-                    setTimeout(smoothDown, 15)
+                    setTimeout(smoothDown, 10)
                 } else {
                     document.body.scrollTop = total
                     document.documentElement.scrollTop = total
@@ -493,7 +507,7 @@ export default {
                     distance -= step
         　　　　　　　document.body.scrollTop = distance
                     document.documentElement.scrollTop = distance
-                    setTimeout(smoothUp, 15)
+                    setTimeout(smoothUp, 10)
                 } else {
                     document.body.scrollTop = total
                     document.documentElement.scrollTop = total
