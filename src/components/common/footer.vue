@@ -15,7 +15,7 @@
             </li>
             <li>
                 <h3>微信平台</h3>
-                <p><img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="微信平台"></p>
+                <p><img src="../../assets/img/sixth_wechat.png" alt="微信平台"></p>
             </li>
             <li>
                 <h3>手机APP</h3>

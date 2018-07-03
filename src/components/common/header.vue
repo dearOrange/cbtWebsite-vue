@@ -22,10 +22,10 @@
                     <li class="officer_css"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">债权方注册</a></li>
                 </ul>
                 <div class="wechat_img hover_css_common" v-if="weixin">
-                    <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="微信公众号">
+                    <img src="../../assets/img/sixth_wechat.png" alt="微信公众号">
                 </div>
                 <div class="upload_img hover_css_common" v-if="upLoadApp">
-                    <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="微信公众号">
+                    <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="下载APP">
                 </div>
             </el-col>
         </el-row>
