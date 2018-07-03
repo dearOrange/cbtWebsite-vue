@@ -353,8 +353,7 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
-            window.addEventListener('scroll', this.onScroll)
-            window.canAutoScroll = true;
+            // window.addEventListener('scroll', this.onScroll)
             var that = this;
             var oOuter = document.getElementById("mannu");
             var aInner = oOuter.getElementsByClassName("common_contain");
@@ -371,7 +370,8 @@ export default {
 				if(oOuter.addEventListener){
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
                         var ev = ev || window.event;
-                        ev.preventDefault();
+                        // ev.preventDefault();
+                        console.log(ev.detail)
                         if(ev.detail){
                             bBtn = ev.detail > 0 ? true : false;
                         }
@@ -380,12 +380,11 @@ export default {
                         }
                         if(bBtn){
                            //↓
-                            if(window.canAutoScroll){
-                                if(iNow != aInner.length){
-                                    if(flag){
-                                        flag = false;
-                                        iNow++;
-                                    }
+                            if(iNow != aInner.length){
+                                if(flag){
+                                    flag = false;
+                                    iNow++;
+                                    that.classNum = iNow
                                 }
                             }
                         }
@@ -394,9 +393,11 @@ export default {
                                 if(flag){
                                     flag = false;
                                     iNow--;
+                                    that.classNum = iNow
                                 }
                             }
                         }
+                        // console.log(iNow)
                         clearTimeout(timer);
 						timer = setTimeout(function(){
                             that.goAnchor(iNow)
@@ -472,7 +473,6 @@ export default {
     },
     methods: {
         goAnchor (index) {
-            // window.canAutoScroll = true;
             this.classNum = index;
             var num = index-1;
             var oOuter = document.getElementById("mannu");
