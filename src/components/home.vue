@@ -342,6 +342,7 @@ export default {
     data(){
         return{
             classNum: 1,
+            flag: true,
             total:{
                 totalUpstream:2156,
                 totalPrices:3262313,
@@ -353,7 +354,8 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
-            // window.addEventListener('scroll', this.onScroll)
+            window.addEventListener('scroll', this.onScroll)
+            window.canAutoScroll = true;
             var that = this;
             var oOuter = document.getElementById("mannu");
             var aInner = oOuter.getElementsByClassName("common_contain");
@@ -362,14 +364,14 @@ export default {
 				//火狐 : DOMMouseScroll( DOM事件必须用绑定事件的方式去写 addEventListener )
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
-				var flag = true;
+				var timer = null;
 				var iNow = 1;
                 var height = oOuter.offsetHeight;
                 
 				if(oOuter.addEventListener){
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
                         var ev = ev || window.event;
-                        
+                        ev.preventDefault();
                         if(ev.detail){
                             bBtn = ev.detail > 0 ? true : false;
                         }
@@ -378,8 +380,10 @@ export default {
                         }
                         if(bBtn){
                            //↓
-                            if(iNow != aInner.length){
-                                iNow++;
+                            if(window.canAutoScroll){
+                                if(iNow != aInner.length){
+                                    iNow++;
+                                }
                             }
                         }
                         else{   //↑
@@ -387,16 +391,23 @@ export default {
                                 iNow--;
                             }
                         }
-                        // clearTimeout(timer);
-						// timer = setTimeout(function(){
+                        clearTimeout(timer);
+						timer = setTimeout(function(){
 							that.goAnchor(iNow)
-						// },200);
-                        ev.preventDefault();
+                        },200);
+                        
+                        if(ev.preventDefault){
+                            ev.preventDefault();
+                        }
+                        else{
+                            return false;
+                        }
+                    
 					},false);
 				}
 				oOuter.onmousewheel = function(ev){
                     var ev = ev || window.event;
-                    ev.preventDefault();
+                    
                     if(ev.detail){
                         bBtn = ev.detail > 0 ? true : false;
                     }
@@ -414,11 +425,17 @@ export default {
                             iNow--;
                         }
                     }
-                    // clearTimeout(timer);
-                    // timer = setTimeout(function(){
+                    clearTimeout(timer);
+                    timer = setTimeout(function(){
                         that.goAnchor(iNow)
-                    // },200);
-                    
+                    },200);
+
+                    if(ev.preventDefault){
+						ev.preventDefault();
+					}
+					else{
+						return false;
+					}
 				};
 			}
 			mouseWheel()
@@ -441,6 +458,7 @@ export default {
     },
     methods: {
         goAnchor (index) {
+            // window.canAutoScroll = true;
             this.classNum = index;
             var num = index-1;
             var oOuter = document.getElementById("mannu");
@@ -485,18 +503,17 @@ export default {
         },
         onScroll () {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-
-            if (scrolled >= 4663) {
+            // console.log(scrolled)
+            if (scrolled >= 4865) {
                 this.classNum = 6
-            } else if (scrolled < 4663 && scrolled >= 3682) {
+            } else if (scrolled < 4865 && scrolled >= 3892) {
                 this.classNum = 5
-            } else if (scrolled < 3682 && scrolled >= 2773) {
+            } else if (scrolled < 3892 && scrolled >= 2919) {
                 this.classNum = 4
-            } else if (scrolled < 2773 && scrolled >= 1818) {
+            } else if (scrolled < 2919 && scrolled >= 1946) {
                 this.classNum = 3
-            } else if (scrolled < 1818 && scrolled >= 909) {
+            } else if (scrolled < 1946 && scrolled >= 973) {
                 this.classNum = 2
-                
             } else {
                 this.classNum = 1
             }
