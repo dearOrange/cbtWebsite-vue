@@ -4,12 +4,12 @@
     <div class="ulJump_btn">
             <p></p>
             <ul>
-                <li :class="classNum === 1 ? 'jump_active' : classNum === 6 ?'':'nextActive'" @click="goAnchor('#banner_contain', 1)"><a href="javascript:void(0)">1</a><span></span></li>
-                <li :class="classNum === 2 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#second_section', 2)"><a href="javascript:void(0)">2</a><span></span></li>
-                <li :class="classNum === 3 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#third_section', 3)"><a href="javascript:void(0)">3</a><span></span></li>
-                <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#fourth_section', 4)"><a href="javascript:void(0)">4</a><span></span></li>
-                <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor('#five_section', 5)"><a href="javascript:void(0)">5</a><span></span></li>
-                <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor('#sixth_section', 6)"><a href="javascript:void(0)">6</a><span></span></li>
+                <li :class="classNum === 1 ? 'jump_active' : classNum === 6 ?'':'nextActive'" @click="goAnchor(1)"><a href="javascript:void(0)">1</a><span></span></li>
+                <li :class="classNum === 2 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(2)"><a href="javascript:void(0)">2</a><span></span></li>
+                <li :class="classNum === 3 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(3)"><a href="javascript:void(0)">3</a><span></span></li>
+                <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(4)"><a href="javascript:void(0)">4</a><span></span></li>
+                <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(5)"><a href="javascript:void(0)">5</a><span></span></li>
+                <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor(6)"><a href="javascript:void(0)">6</a><span></span></li>
                 <!-- <li data-menuanchor="main/home/#banner_contain" class="jump_active"><a href="#main/home/#banner_contain">1</a><span></span></li>
                 <li data-menuanchor="main/home/#second_section"><a href="#main/home/#second_section">2</a><span></span></li>
                 <li data-menuanchor="main/home/#third_section"><a href="#main/home/#third_section">3</a><span></span></li>
@@ -20,7 +20,7 @@
             <p></p>
         </div>
     <div id="mannu">
-        <div id="banner_contain" class="common_contain">
+        <div id="banner_contain" class="common_contain section1">
             <p class="banner_top"></p>
             <div class="banner_title">
                 <span>车</span>
@@ -37,7 +37,7 @@
             
         </div>
         <!-- what we do -->
-        <div id="second_section" class="common_contain">
+        <div id="second_section" class="common_contain section2">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们是做什么的？</p>
             <div class="doing_title">
@@ -84,7 +84,7 @@
             </ul>
         </div>
         <!-- third部分 -->
-        <div id="third_section" class="common_contain">
+        <div id="third_section" class="common_contain section3">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的运营状况</p>
             <div class="doing_title">
@@ -154,7 +154,7 @@
             </div>
         </div>
         <!-- fourth部分 -->
-        <div id="fourth_section" class="common_contain">
+        <div id="fourth_section" class="common_contain section4">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的产品</p>
             <div class="doing_title">
@@ -223,7 +223,7 @@
             </div>
         </div>
         <!-- five 部分 -->
-        <div id="five_section" class="common_contain">
+        <div id="five_section" class="common_contain section5">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的产品怎么使用？</p>
             <div class="doing_title">
@@ -287,7 +287,7 @@
             <div class="goRegister"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">立即注册债权方</a></div>
         </div>
         <!-- sixth 部分 -->
-        <div id="sixth_section" class="common_contain">
+        <div id="sixth_section" class="common_contain section6">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的合作伙伴</p>
             <div class="doing_title">
@@ -362,64 +362,64 @@ export default {
 				//火狐 : DOMMouseScroll( DOM事件必须用绑定事件的方式去写 addEventListener )
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
-				var timer = null;
-				var iNow = 0;
+				var flag = true;
+				var iNow = 1;
                 var height = oOuter.offsetHeight;
                 
 				if(oOuter.addEventListener){
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
-						var ev = ev || window.event;
-						clearTimeout(timer);
-						timer = setTimeout(function(){
-							toChange(ev);
-						},100);
+                        var ev = ev || window.event;
+                        
+                        if(ev.detail){
+                            bBtn = ev.detail > 0 ? true : false;
+                        }
+                        else{
+                            bBtn = ev.wheelDelta < 0 ? true : false;
+                        }
+                        if(bBtn){
+                           //↓
+                            if(iNow != aInner.length){
+                                iNow++;
+                            }
+                        }
+                        else{   //↑
+                            if(iNow != 1){
+                                iNow--;
+                            }
+                        }
+                        // clearTimeout(timer);
+						// timer = setTimeout(function(){
+							that.goAnchor(iNow)
+						// },200);
+                        ev.preventDefault();
 					},false);
 				}
-				oOuter.onmousewheel = function(){
-					var ev = ev || window.event;
-					clearTimeout(timer);
-					timer = setTimeout(function(){
-						toChange(ev);
-					},100);
-				};
-				function toChange(ev){
-					//alert(ev.detail);  //↓ 3  ↑ -3
-					//alert(ev.wheelDelta); //↓ -120  ↑ 120
-					if(ev.detail){
-						bBtn = ev.detail > 0 ? true : false;
-					}
-					else{
-						bBtn = ev.wheelDelta < 0 ? true : false;
-					}
-					if(bBtn){
-                           //↓
-						if(iNow != aInner.length-1){
-                            iNow++;
-                            that.classNum = iNow+1
-                        }
-                        console.log(window.pageYOffset)
-                        oOuter.style.top = -height*iNow + window.pageYOffset + "px"
-					}
-					else{   //↑
-						if(iNow != 0){
-                            iNow--;
-                            that.classNum = iNow+1;
-                            oOuter.style.top = -height*iNow -64 + window.pageYOffset + "px"
-                        }else{
-                            oOuter.style.top = 0
-                        }
-                        
-						
+				oOuter.onmousewheel = function(ev){
+                    var ev = ev || window.event;
+                    ev.preventDefault();
+                    if(ev.detail){
+                        bBtn = ev.detail > 0 ? true : false;
                     }
+                    else{
+                        bBtn = ev.wheelDelta < 0 ? true : false;
+                    }
+                    if(bBtn){
+                        //↓
+                        if(iNow != aInner.length){
+                            iNow++;
+                        }
+                    }
+                    else{   //↑
+                        if(iNow != 1){
+                            iNow--;
+                        }
+                    }
+                    // clearTimeout(timer);
+                    // timer = setTimeout(function(){
+                        that.goAnchor(iNow)
+                    // },200);
                     
-					if(ev.preventDefault){
-						ev.preventDefault();
-					}
-					else{
-						return false;
-					}
-				}
-				
+				};
 			}
 			mouseWheel()
         });
@@ -440,15 +440,19 @@ export default {
         })
     },
     methods: {
-        goAnchor (selector,index) {
+        goAnchor (index) {
             this.classNum = index;
-            console.log(this.classNum)
-            let jump = this.$el.querySelector(selector);
-            let total = jump.offsetTop-64;
+            var num = index-1;
+            var oOuter = document.getElementById("mannu");
+            var aInner = oOuter.getElementsByClassName("common_contain");
+            // let jump = this.$el.querySelector(selector);
+            let total = aInner[num].offsetTop-64;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
             // 平滑滚动，时长500ms，每10ms一跳，共50跳
-            let step = total / 50
+            let step;
             if (total > distance) {
+                let newTotal = total - distance
+                step = newTotal / 50
                 smoothDown()
             } else {
                 let newTotal = distance - total
@@ -477,6 +481,7 @@ export default {
                     document.documentElement.scrollTop = total
                 }
             } 
+            
         },
         onScroll () {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
