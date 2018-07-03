@@ -10,12 +10,6 @@
                 <li :class="classNum === 4 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(4)"><a href="javascript:void(0)">4</a><span></span></li>
                 <li :class="classNum === 5 ? 'jump_active' : classNum === 1 || classNum === 6 ?'':'nextActive'" @click="goAnchor(5)"><a href="javascript:void(0)">5</a><span></span></li>
                 <li :class="classNum === 6 ? 'jump_active' : classNum === 1 ?'':'nextActive'" @click="goAnchor(6)"><a href="javascript:void(0)">6</a><span></span></li>
-                <!-- <li data-menuanchor="main/home/#banner_contain" class="jump_active"><a href="#main/home/#banner_contain">1</a><span></span></li>
-                <li data-menuanchor="main/home/#second_section"><a href="#main/home/#second_section">2</a><span></span></li>
-                <li data-menuanchor="main/home/#third_section"><a href="#main/home/#third_section">3</a><span></span></li>
-                <li data-menuanchor="main/home/#fourth_section"><a href="#main/home/#fourth_section">4</a><span></span></li>
-                <li data-menuanchor="main/home/#five_section"><a href="#main/home/#five_section">5</a><span></span></li>
-                <li data-menuanchor="main/home/#sixth_section"><a href="#main/home/#sixth_section">6</a><span></span></li> -->
             </ul>
             <p></p>
         </div>
@@ -371,7 +365,6 @@ export default {
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
                         var ev = ev || window.event;
                         // ev.preventDefault();
-                        console.log(ev.detail)
                         if(ev.detail){
                             bBtn = ev.detail > 0 ? true : false;
                         }
@@ -397,7 +390,7 @@ export default {
                                 }
                             }
                         }
-                        // console.log(iNow)
+                        
                         clearTimeout(timer);
 						timer = setTimeout(function(){
                             that.goAnchor(iNow)
@@ -457,7 +450,7 @@ export default {
         });
         axios({
             method: 'get',
-            url:'http://javadev:8280/hunterServer/content/getWebsiteData',
+            url:'http://test.hunter.chebutou.com.cn/hunterServer/content/getWebsiteData',
             responseType:'json',
             headers: {
               'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
