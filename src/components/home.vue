@@ -14,7 +14,7 @@
             <p></p>
         </div>
     <div id="mannu">
-        <div id="banner_contain" class="common_contain section1">
+        <div id="banner_contain" class="common_contain">
             <p class="banner_top"></p>
             <div class="banner_title">
                 <span>车</span>
@@ -31,7 +31,7 @@
             
         </div>
         <!-- what we do -->
-        <div id="second_section" class="common_contain section2">
+        <div id="second_section" class="common_contain">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们是做什么的？</p>
             <div class="doing_title">
@@ -78,7 +78,7 @@
             </ul>
         </div>
         <!-- third部分 -->
-        <div id="third_section" class="common_contain section3">
+        <div id="third_section" class="common_contain">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的运营状况</p>
             <div class="doing_title">
@@ -148,7 +148,7 @@
             </div>
         </div>
         <!-- fourth部分 -->
-        <div id="fourth_section" class="common_contain section4">
+        <div id="fourth_section" class="common_contain">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的产品</p>
             <div class="doing_title">
@@ -217,7 +217,7 @@
             </div>
         </div>
         <!-- five 部分 -->
-        <div id="five_section" class="common_contain section5">
+        <div id="five_section" class="common_contain">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的产品怎么使用？</p>
             <div class="doing_title">
@@ -281,7 +281,7 @@
             <div class="goRegister"><a href="http://loaner.chebutou.com.cn/src/modules/register/register.html">立即注册债权方</a></div>
         </div>
         <!-- sixth 部分 -->
-        <div id="sixth_section" class="common_contain section6">
+        <div id="sixth_section" class="common_contain">
             <p class="common_css todo_top"></p>
             <p class="what_title">我们的合作伙伴</p>
             <div class="doing_title">
@@ -351,14 +351,13 @@ export default {
             var that = this;
             var oOuter = document.getElementById("mannu");
             var aInner = oOuter.getElementsByClassName("common_contain");
-            
+            console.log(aInner.length)
 			function mouseWheel(){
 				//火狐 : DOMMouseScroll( DOM事件必须用绑定事件的方式去写 addEventListener )
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
 				var timer = null;
                 var iNow = 1;
-                var flag = true;
                 var height = oOuter.offsetHeight;
                 
 				if(oOuter.addEventListener){
@@ -372,31 +371,26 @@ export default {
                             bBtn = ev.wheelDelta < 0 ? true : false;
                         }
                         if(bBtn){
-                           //↓
+                            //↓
                             if(iNow != aInner.length){
-                                if(flag){
-                                    flag = false;
+                                clearTimeout(timer);
+                                timer = setTimeout(function(){
                                     iNow++;
-                                    that.classNum = iNow
-                                }
+                                    that.classNum = iNow;
+                                    that.goAnchor(iNow)
+                                },300);
                             }
                         }
                         else{   //↑
                             if(iNow != 1){
-                                if(flag){
-                                    flag = false;
+                                clearTimeout(timer);
+                                timer = setTimeout(function(){
                                     iNow--;
                                     that.classNum = iNow
-                                }
+                                    that.goAnchor(iNow)
+                                },300);
                             }
                         }
-                        
-                        clearTimeout(timer);
-						timer = setTimeout(function(){
-                            that.goAnchor(iNow)
-                            flag = true;
-                        },300);
-                        
                         if(ev.preventDefault){
                             ev.preventDefault();
                         }
@@ -408,42 +402,43 @@ export default {
 				}
 				oOuter.onmousewheel = function(ev){
                     var ev = ev || window.event;
-                    
                     if(ev.detail){
                         bBtn = ev.detail > 0 ? true : false;
                     }
                     else{
                         bBtn = ev.wheelDelta < 0 ? true : false;
                     }
+                    
                     if(bBtn){
                         //↓
                         if(iNow != aInner.length){
-                            if(flag){
-                                flag = false;
+                            clearTimeout(timer);
+                            timer = setTimeout(function(){
                                 iNow++;
-                            }
+                                that.classNum = iNow;
+                                that.goAnchor(iNow)
+                            },300);
                         }
+                        
                     }
                     else{   //↑
+                        
                         if(iNow != 1){
-                            if(flag){
-                                flag = false;
+                            clearTimeout(timer);
+                            timer = setTimeout(function(){
                                 iNow--;
-                            }
+                                that.classNum = iNow
+                                that.goAnchor(iNow)
+                            },300);
                         }
                     }
-                    clearTimeout(timer);
-                    timer = setTimeout(function(){
-                        that.goAnchor(iNow)
-                        flag = true;
-                    },300);
-
                     if(ev.preventDefault){
-						ev.preventDefault();
-					}
-					else{
-						return false;
-					}
+                        ev.preventDefault();
+                    }
+                    else{
+                        return false;
+                    }
+                    
 				};
 			}
 			mouseWheel()
@@ -467,9 +462,9 @@ export default {
     methods: {
         goAnchor (index) {
             this.classNum = index;
-            var num = index-1;
-            var oOuter = document.getElementById("mannu");
-            var aInner = oOuter.getElementsByClassName("common_contain");
+            let num = index-1;
+            let oOuter = document.getElementById("mannu");
+            let aInner = oOuter.getElementsByClassName("common_contain");
             // let jump = this.$el.querySelector(selector);
             let total = aInner[num].offsetTop-64;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
@@ -477,11 +472,11 @@ export default {
             let step;
             if (total > distance) {
                 let newTotal = total - distance
-                step = newTotal / 50
+                step = newTotal / 60
                 smoothDown()
             } else {
                 let newTotal = distance - total
-                step = newTotal / 50
+                step = newTotal / 60
                 smoothUp()
             }
             function smoothDown () {
