@@ -351,14 +351,12 @@ export default {
             var that = this;
             var oOuter = document.getElementById("mannu");
             var aInner = oOuter.getElementsByClassName("common_contain");
-            console.log(aInner.length)
 			function mouseWheel(){
 				//火狐 : DOMMouseScroll( DOM事件必须用绑定事件的方式去写 addEventListener )
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
 				var timer = null;
                 var iNow = 1;
-                var height = oOuter.offsetHeight;
                 
 				if(oOuter.addEventListener){
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
