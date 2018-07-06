@@ -347,7 +347,7 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
-            // window.addEventListener('scroll', this.onScroll)
+            window.addEventListener('scroll', this.onScroll, false)
             var that = this;
             var oOuter = document.getElementById("mannu");
             var aInner = oOuter.getElementsByClassName("common_contain");
@@ -356,12 +356,10 @@ export default {
 				//IE ,  谷歌 : mousewheel
 				var bBtn = true;
 				var timer = null;
-                var iNow = 1;
                 
 				if(oOuter.addEventListener){
 					oOuter.addEventListener('DOMMouseScroll',function(ev){
                         var ev = ev || window.event;
-                        // ev.preventDefault();
                         if(ev.detail){
                             bBtn = ev.detail > 0 ? true : false;
                         }
@@ -370,23 +368,26 @@ export default {
                         }
                         if(bBtn){
                             //↓
-                            if(iNow != aInner.length){
+                            if(that.classNum < aInner.length){
                                 clearTimeout(timer);
                                 timer = setTimeout(function(){
-                                    iNow++;
-                                    that.classNum = iNow;
-                                    that.goAnchor(iNow)
+                                    that.classNum = that.classNum + 1;
+                                    that.goAnchor(that.classNum)
                                 },300);
+                            }else{
+                                that.classNum = 6;
+                                that.goAnchor(6);
                             }
                         }
                         else{   //↑
-                            if(iNow != 1){
+                            if(that.classNum > 1){
                                 clearTimeout(timer);
                                 timer = setTimeout(function(){
-                                    iNow--;
-                                    that.classNum = iNow
-                                    that.goAnchor(iNow)
+                                    that.classNum = that.classNum - 1;
+                                    that.goAnchor(that.classNum)
                                 },300);
+                            }else{
+                                that.classNum = 1;
                             }
                         }
                         if(ev.preventDefault){
@@ -409,25 +410,28 @@ export default {
                     
                     if(bBtn){
                         //↓
-                        if(iNow != aInner.length){
+                        if(that.classNum < aInner.length){
                             clearTimeout(timer);
                             timer = setTimeout(function(){
-                                iNow++;
-                                that.classNum = iNow;
-                                that.goAnchor(iNow)
+                                that.classNum++;
+                                that.goAnchor(that.classNum)
                             },300);
+                        }else{
+                            that.classNum = 6;
+                            that.goAnchor(that.classNum)
                         }
                         
                     }
                     else{   //↑
-                        
-                        if(iNow != 1){
+                        if(that.classNum > 1){
                             clearTimeout(timer);
                             timer = setTimeout(function(){
-                                iNow--;
-                                that.classNum = iNow
-                                that.goAnchor(iNow)
+                                that.classNum--
+                                that.goAnchor(that.classNum)
                             },300);
+                        }else{
+                            that.classNum = 1;
+                            that.goAnchor(that.classNum)
                         }
                     }
                     if(ev.preventDefault){
@@ -478,6 +482,7 @@ export default {
                 smoothUp()
             }
             function smoothDown () {
+                console.log(distance, total)
                 if (distance < total) {
                     distance += step
         　　　　　　 document.body.scrollTop = distance
@@ -504,15 +509,17 @@ export default {
         onScroll () {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log(scrolled)
-            if (scrolled >= 4865) {
+            if (scrolled >= 4727) {
+                this.classNum = 7
+            } else if (scrolled < 4727 && scrolled >= 4663) {
                 this.classNum = 6
-            } else if (scrolled < 4865 && scrolled >= 3892) {
+            } else if (scrolled < 4663 && scrolled >= 3682) {
                 this.classNum = 5
-            } else if (scrolled < 3892 && scrolled >= 2919) {
+            } else if (scrolled < 3682 && scrolled >= 2773) {
                 this.classNum = 4
-            } else if (scrolled < 2919 && scrolled >= 1946) {
+            } else if (scrolled < 2773 && scrolled >= 1818) {
                 this.classNum = 3
-            } else if (scrolled < 1946 && scrolled >= 973) {
+            } else if (scrolled < 1818 && scrolled >= 909) {
                 this.classNum = 2
             } else {
                 this.classNum = 1
