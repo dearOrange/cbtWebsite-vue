@@ -378,6 +378,8 @@ export default {
                                 that.classNum = 6;
                                 that.goAnchor(6);
                             }
+                            
+                            
                         }
                         else{   //↑
                             if(that.classNum > 1){
@@ -388,6 +390,7 @@ export default {
                                 },300);
                             }else{
                                 that.classNum = 1;
+                                that.goAnchor(1)
                             }
                         }
                         if(ev.preventDefault){
@@ -418,8 +421,9 @@ export default {
                             },300);
                         }else{
                             that.classNum = 6;
-                            that.goAnchor(that.classNum)
+                            that.goAnchor(6)
                         }
+                        
                         
                     }
                     else{   //↑
@@ -431,7 +435,7 @@ export default {
                             },300);
                         }else{
                             that.classNum = 1;
-                            that.goAnchor(that.classNum)
+                            that.goAnchor(1)
                         }
                     }
                     if(ev.preventDefault){
@@ -468,6 +472,7 @@ export default {
             let oOuter = document.getElementById("mannu");
             let aInner = oOuter.getElementsByClassName("common_contain");
             // let jump = this.$el.querySelector(selector);
+            // aInner[num].style.height = document.documentElement.offsetHeight-64 + 'px'
             let total = aInner[num].offsetTop-64;
             let distance = document.documentElement.scrollTop || document.body.scrollTop;
             // 平滑滚动，时长500ms，每10ms一跳，共50跳
@@ -482,7 +487,7 @@ export default {
                 smoothUp()
             }
             function smoothDown () {
-                console.log(distance, total)
+                // console.log(distance, total)
                 if (distance < total) {
                     distance += step
         　　　　　　 document.body.scrollTop = distance
@@ -509,15 +514,13 @@ export default {
         onScroll () {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log(scrolled)
-            if (scrolled >= 4727) {
-                this.classNum = 7
-            } else if (scrolled < 4727 && scrolled >= 4663) {
+            if (scrolled >= 4545) {
                 this.classNum = 6
-            } else if (scrolled < 4663 && scrolled >= 3682) {
+            } else if (scrolled < 4545 && scrolled >= 3636) {
                 this.classNum = 5
-            } else if (scrolled < 3682 && scrolled >= 2773) {
+            } else if (scrolled < 3636 && scrolled >= 2727) {
                 this.classNum = 4
-            } else if (scrolled < 2773 && scrolled >= 1818) {
+            } else if (scrolled < 2727 && scrolled >= 1818) {
                 this.classNum = 3
             } else if (scrolled < 1818 && scrolled >= 909) {
                 this.classNum = 2
