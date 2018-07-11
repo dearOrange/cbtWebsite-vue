@@ -36,7 +36,7 @@ export default {
     height:228px;
     background:rgba(1,2,24,1);
     opacity:0.8;
-    /* margin-top:98px; */
+    margin-top:98px;
     color:#fff;
     /* position: absolute;
     bottom: 0; */
