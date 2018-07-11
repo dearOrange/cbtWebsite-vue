@@ -38,8 +38,8 @@ export default {
     opacity:0.8;
     /* margin-top:98px; */
     color:#fff;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
 }
 #footer_contain ul{
     width:1050px;

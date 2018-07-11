@@ -320,7 +320,7 @@
                     <img src="../assets/img/sixth_9.png" alt="">
                 </li>
             </ul>
-            <Footer/>
+            <Footer style="position: absolute;bottom: 0;"/>
         </div>
     </div>
  </div>   
