@@ -25,7 +25,7 @@
                     <img src="../../assets/img/sixth_wechat.png" alt="微信公众号">
                 </div>
                 <div class="upload_img hover_css_common" v-if="upLoadApp">
-                    <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="下载APP">
+                    <img src="http://hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="下载APP">
                 </div>
             </el-col>
         </el-row>

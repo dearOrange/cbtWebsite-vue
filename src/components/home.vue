@@ -210,7 +210,7 @@
                     </dl>
                     <dl class="last_dl_list">
                         <dd class="dd_two">
-                            <img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="">
+                            <img src="http://hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="">
                         </dd>
                     </dl>
                 </div>
@@ -451,7 +451,7 @@ export default {
         });
         axios({
             method: 'get',
-            url:'http://192.168.2.152:8280/hunterServer/content/getWebsiteData',
+            url:'http://hunter.chebutou.com.cn/hunterServer/content/getWebsiteData',
             responseType:'json',
             headers: {
               'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8'

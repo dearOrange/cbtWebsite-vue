@@ -19,7 +19,7 @@
             </li>
             <li>
                 <h3>手机APP</h3>
-                <p><img src="http://test.hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="手机APP"></p>
+                <p><img src="http://hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="手机APP"></p>
             </li>
         </ul>
         <div class="bussiness_mark">Copyright © 2016-2017 chebutou.com.cn 版权所有 浙ICP备17001441号-1</div>
