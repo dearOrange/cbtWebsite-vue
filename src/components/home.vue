@@ -337,10 +337,10 @@ export default {
         return{
             classNum: 1,
             total:{
-                totalUpstream:2156,
-                totalPrices:3262313,
+                totalUpstream:3156,
+                totalPrices:2262313,
                 totalDownstream:7865,
-                totalTask:141840
+                totalTask:101840
             }
             
         }
@@ -451,7 +451,7 @@ export default {
         });
         axios({
             method: 'get',
-            url:'http://test.hunter.chebutou.com.cn/hunterServer/content/getWebsiteData',
+            url:'http://192.168.2.152:8280/hunterServer/content/getWebsiteData',
             responseType:'json',
             headers: {
               'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
