@@ -208,10 +208,13 @@
                             <img src="../assets/img/fourth_andriod.png" alt="">    
                         </dt>   
                     </dl>
-                    <dl class="last_dl_list">
+                    <dl class="last_dl_list" style="position:relative;">
                         <dd class="dd_two">
                             <img src="http://hunter.chebutou.com.cn/hunterServer/content/showQRCode" alt="">
                         </dd>
+                        <router-link to="/main/vpdf"><dt style="position:absolute;top:-16px;right:-150px;width:130px;height:34px;border-radius:2px;border:1px solid rgba(240,240,240,1);color:rgba(255,127,59,1);line-height:34px;text-align:center;cursor:pointer;">
+                            捕车邦使用说明>>
+                        </dt></router-link> 
                     </dl>
                 </div>
             </div>
@@ -331,7 +334,7 @@ import Footer from './common/footer.vue'
 export default {
     name:'Home',
     components:{
-        Footer
+        Footer,
     },
     data(){
         return{

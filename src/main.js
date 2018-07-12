@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'babel-polyfill'
 import 'es6-promise/auto'
 
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
